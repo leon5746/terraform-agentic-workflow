@@ -5,8 +5,11 @@ on:
 
 engine:
   id: gemini
-  
+
 model: gemini-3.5-flash-lite
+
+max-turns: 5
+max-turn-cache-misses: 10
 
 permissions:
   contents: read
@@ -24,74 +27,58 @@ safe-outputs:
 
 # Revisión de Infraestructura Terraform
 
-Analiza los cambios de Terraform introducidos por el Pull Request.
+Analiza los cambios de Terraform del Pull Request y publica una revisión técnica como comentario.
 
-## Objetivos
+## Tareas
 
-- Revisar los archivos de Terraform modificados por el Pull Request.
-- Validar la configuración de Terraform.
-- Analizar el plan de Terraform.
-- Identificar posibles riesgos de seguridad, networking, disponibilidad y costos.
-- Explicar el impacto de los cambios propuestos en la infraestructura.
-- Proporcionar recomendaciones al equipo de desarrollo.
+1. Identifica los archivos y recursos Terraform modificados.
+2. Ejecuta, cuando sea posible:
+   - `terraform fmt -check`
+   - `terraform validate`
+   - `terraform plan`
+3. Identifica recursos creados, modificados y eliminados.
+4. Evalúa riesgos de:
+   - Seguridad
+   - Networking
+   - Disponibilidad
+   - Costos
+5. Explica el impacto arquitectónico.
+6. Proporciona recomendaciones concretas.
 
-## Instrucciones
+## Restricciones
 
-1. Analiza los archivos de Terraform modificados por el Pull Request.
-2. Ejecuta las validaciones necesarias de Terraform.
-3. Ejecuta `terraform fmt -check` cuando sea posible.
-4. Ejecuta `terraform validate` cuando sea posible.
-5. Genera un plan de Terraform cuando sea posible.
-6. Analiza los recursos que serán creados, modificados o eliminados.
-7. Identifica configuraciones que puedan representar un riesgo.
-8. Explica el impacto arquitectónico de los cambios.
-9. Proporciona recomendaciones cuando detectes posibles riesgos.
-10. Publica el análisis como comentario en el Pull Request.
-
-## Restricciones de seguridad
-
-- No ejecutes `terraform apply`.
-- No modifiques infraestructura de producción.
-- No expongas credenciales, tokens o secretos.
-- No apruebes ni hagas merge del Pull Request.
-- No realices cambios en el repositorio.
+- Nunca ejecutes `terraform apply`.
+- No modifiques archivos ni infraestructura.
 - No ejecutes comandos destructivos.
 - No elimines archivos.
-- No modifiques archivos de Terraform durante la revisión.
+- No apruebes ni hagas merge del Pull Request.
+- Nunca expongas secretos, tokens o credenciales.
 
-## Formato de salida
-
-Genera el resultado utilizando la siguiente estructura:
+## Formato
 
 ### Revisión de Infraestructura Terraform
 
 **Resumen**
-
-Describe brevemente qué cambios introduce el Pull Request.
+- Describe brevemente los cambios.
 
 **Recursos**
-
-- Recursos a crear:
-- Recursos a modificar:
-- Recursos a eliminar:
+- Crear:
+- Modificar:
+- Eliminar:
 
 **Validaciones**
+- Format:
+- Validate:
+- Plan:
 
-- Terraform format:
-- Terraform validate:
-- Terraform plan:
-
-**Riesgos potenciales**
-
+**Riesgos**
 - Seguridad:
 - Networking:
 - Disponibilidad:
 - Costos:
 
-**Impacto en la arquitectura**
-
-Describe los principales componentes afectados y cómo los cambios modifican la arquitectura existente.
+**Impacto arquitectónico**
+- Describe los componentes afectados.
 
 **Recomendación**
-
-Proporciona una recomendación concreta para el equipo de desarrollo.
+- Proporciona una recomendación concreta.
