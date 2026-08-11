@@ -8,7 +8,8 @@ engine:
 
 model: gemini-3.5-flash-lite
 
-max-turns: 1
+max-turns: 2
+max-turn-cache-misses: 5
 
 permissions:
   contents: read
