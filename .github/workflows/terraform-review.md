@@ -8,8 +8,8 @@ engine:
 
 model: gemini-3.5-flash-lite
 
-max-turns: 5
-max-turn-cache-misses: 10
+max-turns: 3
+max-turn-cache-misses: 5
 
 permissions:
   contents: read
@@ -27,49 +27,40 @@ safe-outputs:
 
 # Revisión de Infraestructura Terraform
 
-Analiza los cambios de Terraform del Pull Request y publica una revisión técnica como comentario.
+Revisa los cambios de Terraform del Pull Request y publica un comentario con los hallazgos.
 
 ## Tareas
 
-1. Identifica los archivos y recursos Terraform modificados.
-2. Ejecuta, cuando sea posible:
-   - `terraform fmt -check`
-   - `terraform validate`
-   - `terraform plan`
-3. Identifica recursos creados, modificados y eliminados.
-4. Evalúa riesgos de:
-   - Seguridad
-   - Networking
-   - Disponibilidad
-   - Costos
-5. Explica el impacto arquitectónico.
-6. Proporciona recomendaciones concretas.
+1. Analiza únicamente los cambios relevantes del Pull Request.
+2. Identifica recursos creados, modificados o eliminados.
+3. Evalúa riesgos de seguridad, networking, disponibilidad y costos.
+4. Explica el impacto arquitectónico.
+5. Proporciona recomendaciones concretas.
+
+Cuando sea necesario, ejecuta `terraform fmt -check` y `terraform validate`.
+
+No ejecutes `terraform plan` salvo que sea necesario para comprender los cambios.
 
 ## Restricciones
 
-- Nunca ejecutes `terraform apply`.
-- No modifiques archivos ni infraestructura.
+- No ejecutes `terraform apply`.
+- No modifiques archivos.
+- No modifiques infraestructura.
 - No ejecutes comandos destructivos.
 - No elimines archivos.
 - No apruebes ni hagas merge del Pull Request.
-- Nunca expongas secretos, tokens o credenciales.
+- No expongas secretos, tokens ni credenciales.
 
 ## Formato
 
 ### Revisión de Infraestructura Terraform
 
 **Resumen**
-- Describe brevemente los cambios.
 
 **Recursos**
 - Crear:
 - Modificar:
 - Eliminar:
-
-**Validaciones**
-- Format:
-- Validate:
-- Plan:
 
 **Riesgos**
 - Seguridad:
@@ -78,7 +69,5 @@ Analiza los cambios de Terraform del Pull Request y publica una revisión técni
 - Costos:
 
 **Impacto arquitectónico**
-- Describe los componentes afectados.
 
 **Recomendación**
-- Proporciona una recomendación concreta.
