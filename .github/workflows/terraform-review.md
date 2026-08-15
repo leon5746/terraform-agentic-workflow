@@ -17,8 +17,6 @@ permissions:
 mcp-servers:
   terraform:
     container: "hashicorp/terraform-mcp-server"
-    allowed:
-      - "*"
 
 safe-outputs:
   add-comment:
