@@ -24,7 +24,7 @@ safe-outputs:
     pull-requests: true
 ---
 
-# Prueba Terraform MCP
+# Revisión de Infraestructura Terraform
 
 Utiliza Terraform MCP Server para inspeccionar el proyecto Terraform.
 
@@ -40,15 +40,12 @@ No modifiques archivos.
 
 Devuelve un resumen breve.
 
-# Revisión de Infraestructura Terraform
-
 
 Utiliza Terraform MCP Server para revisar la configuración.
 
 Identifica:
 - Recursos modificados.
 - Posibles riesgos de seguridad.
-- Explica el proyecto
 
 No ejecutes terraform apply.
 
