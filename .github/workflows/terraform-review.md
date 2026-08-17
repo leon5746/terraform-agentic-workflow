@@ -42,7 +42,6 @@ Devuelve un resumen breve.
 
 # Revisión de Infraestructura Terraform
 
-Analiza únicamente los cambios Terraform del Pull Request.
 
 Utiliza Terraform MCP Server para revisar la configuración.
 
