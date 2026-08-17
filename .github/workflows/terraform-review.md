@@ -7,7 +7,7 @@ engine:
   id: gemini
   model: gemini-3.5-flash-lite
 
-max-turns: 2
+max-turns: 5
 max-turn-cache-misses: 5
 
 permissions:
@@ -24,16 +24,18 @@ safe-outputs:
     pull-requests: true
 ---
 
-# Revisión de Infraestructura Terraform
+# Prueba Terraform MCP
 
-Analiza únicamente los cambios Terraform del Pull Request.
+Utiliza Terraform MCP Server para inspeccionar el proyecto Terraform.
 
-Utiliza Terraform MCP Server para revisar la configuración.
+No utilices comandos Git para obtener información del Pull Request.
 
-Identifica:
-- Recursos modificados.
-- Posibles riesgos de seguridad.
+Identifica únicamente:
+- Los archivos Terraform existentes.
+- Los recursos Terraform definidos.
 
 No ejecutes terraform apply.
 
-Publica un único comentario con los resultados.
+No modifiques archivos.
+
+Devuelve un resumen breve.
