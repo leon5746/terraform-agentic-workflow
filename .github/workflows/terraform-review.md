@@ -7,7 +7,7 @@ engine:
   id: gemini
   model: gemini-3.5-flash-lite
 
-max-turns: 5
+max-turns: 10
 max-turn-cache-misses: 5
 
 permissions:
@@ -39,3 +39,17 @@ No ejecutes terraform apply.
 No modifiques archivos.
 
 Devuelve un resumen breve.
+
+# Revisión de Infraestructura Terraform
+
+Analiza únicamente los cambios Terraform del Pull Request.
+
+Utiliza Terraform MCP Server para revisar la configuración.
+
+Identifica:
+- Recursos modificados.
+- Posibles riesgos de seguridad.
+
+No ejecutes terraform apply.
+
+Publica un único comentario con los resultados.
