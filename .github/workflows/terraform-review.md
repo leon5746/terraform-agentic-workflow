@@ -46,7 +46,6 @@ Utiliza Terraform MCP Server para revisar la configuración.
 Identifica:
 - Recursos modificados.
 - Posibles riesgos de seguridad.
-- Explica el proyecto
 
 No ejecutes terraform apply.
 
